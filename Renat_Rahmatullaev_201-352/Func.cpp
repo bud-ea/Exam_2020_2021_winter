@@ -1,5 +1,4 @@
 #include "Func.h"
-#include <bitset>//для составления таблицы
 
 
 int num_of_args(std::vector<bool> f)
@@ -42,10 +41,97 @@ std::string table(std::vector<bool> f)
     return STR;
 }
 
-std::string func_sdnf(vector<bool> f)
+
+
+
+int roman_to_arab(std::string roman_number)
 {
-  
-    return 0;
+    std::map<char, int> romanMap; // Наш алфавит
+    romanMap['I'] = 1;
+    romanMap['V'] = 5;
+    romanMap['X'] = 10;
+    romanMap['L'] = 50;
+    romanMap['C'] = 100;
+    romanMap['D'] = 500;
+    romanMap['M'] = 1000;
+
+    int early = 0; // Предыдущее 
+    int result = 0; // Результат
+    for (char c : roman_number)//Проходимся по всем цифрам
+    {
+        int ReadNum = romanMap[c];
+        if (ReadNum < early) //Если символ меньше предыдущего, значит мы прибавляем
+        {
+            result += early;
+            early = ReadNum;
+        }
+        else if (ReadNum > early) // Если символ больше предыдущего, значит мы отнимаем
+        {
+            if (early == 0) // Если предыдущая цифра равна нулю, значит её нужно чем то заполнить 
+                early = ReadNum;
+            else //Если нет то мы отнимаем 
+            {
+                result += ReadNum - early;
+                early = 0;
+            }
+        }
+        else if (ReadNum == early) // Если символ равен предыдущему, то тоже складываем
+        {
+            result += early + ReadNum;
+            early = 0;
+        }
+    }
+    return result + early;
 }
+
+
+std::vector<int> func_Pascal(int k)
+{
+    std::vector<int> result;
+
+    for (int i = 0; i <= k; i++)
+    {
+        result.push_back(fact(k) / (fact(k - i) * fact(i))); //Записываем в вектор бинаминальные коэффициенты 
+    }
+    return result;
+}
+
+double fact(double num)//Нахождение факториала числа
+{
+    if (num == 0) 
+        return 1;
+    else 
+        return num * fact(num - 1);
+}
+
+int func_substr_len(std::string input_str)
+{
+
+    int firstChar = 0;
+    int result = 0;
+    std::set<char> SetSym; // Set в котором будут храниться все символы подстроки 
+
+    for (int i = 0; i < input_str.size(); i++) 
+    {
+        if (SetSym.find(input_str[i]) == SetSym.end()) // Если такого символа в контейнере нет, мы его добавляем 
+        {
+            SetSym.insert(input_str[i]); // Добавляем символ в set
+        }
+        else 
+        {
+            if (SetSym.size() > result) // Если размер подстроки больше размера предыдущей
+            {
+                result = SetSym.size(); //Заменяем значение на максимальное
+            }
+            SetSym.clear(); // Очищаем set
+            firstChar++; // Исключаем первые символы из проверки
+            i = firstChar; // Начинаем снова, за исключением первого(ых) символов
+        }
+    }
+    if (result == 0)
+        result = SetSym.size();
+    return result;
+}
+
 
 

@@ -1,10 +1,4 @@
-﻿// Rahmatullaev_Renat_201-352.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
-#include <vector>
-#include <math.h>
-#include "Func.h"
+﻿#include "Func.h"
 
 using namespace std;
 
@@ -15,7 +9,23 @@ int main()
     vector<bool> w;
     w = read_from_file(q);
     
-    cout <<write_to_file(e, w);
+    string ewq = "XXV";
+    cout<<roman_to_arab(ewq)<<endl;
 
+
+    vector<int> VV= func_Pascal(14);
+    for (int i = 0; i < VV.size(); i++)
+        cout << VV[i] << ' ';
+
+
+    //cout << func_substr_len("abcd");
+
+    
+
+    //cout <<write_to_file(e, w);
+
+
+
+    
 }
 
