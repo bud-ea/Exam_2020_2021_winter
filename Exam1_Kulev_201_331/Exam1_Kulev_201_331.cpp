@@ -18,6 +18,18 @@ void runHalf2()
 {
     std::string roman("MCMLXXXIV");
     printf_s("Roman (%s) to arabic: %d\n", roman.c_str(), roman_to_arab(roman));
+
+    int pK = 3;
+    printf_s("Pascal triangle for k = %d:\n", pK);
+    for (int i : func_Pascal(pK))
+    {
+        printf_s("%d ", i);
+    }
+
+    printf_s("\n");
+
+    std::string seq("longest word in the universe");
+    printf_s("Longest sequence of \"%s\" is %d\n", seq.c_str(), func_substr_len(seq));
 }
 
 void runHalf1()
