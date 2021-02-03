@@ -1,7 +1,7 @@
-#include <iostream>
+#include <iostream>//базовая библиотека
 #include <vector>//для вектора
 #include "Logacheva_Anna_201-331.h"
-#include <fstream>
+#include <fstream>//работа с файлами
 using namespace std;
 
 int num_of_args(vector<bool> f)
