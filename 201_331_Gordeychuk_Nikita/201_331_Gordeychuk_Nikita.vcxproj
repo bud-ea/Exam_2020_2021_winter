@@ -123,6 +123,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Gordeychuk_Nikita_all_func.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Gordeychuk_Nikita_all_tasks.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="read_bool_vector.txt" />
+    <Text Include="write_bool_vector.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
