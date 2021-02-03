@@ -88,7 +88,7 @@ std::string table(std::vector<bool> f)
 
 std::string func_sdnf(std::vector<bool> f)
 {
-	std::string func("f(");
+	std::string func("f_sdnf(");
 	int argNum = num_of_args(f);
 
 	for (int i = 1; i <= argNum; i++)
@@ -111,20 +111,66 @@ std::string func_sdnf(std::vector<bool> f)
 				bool arg = (bool)(i & (int)(pow(2, (argNum - j - 1))));
 
 				if (!arg)
-					func += "!";
+					func += "'";
 
 				func += "x" + std::to_string(j + 1);
 				if (j != argNum - 1)
-					func += " * ";
+					func += " & ";
 
 			}
 
-			func += ") + ";
+			func += ") v ";
 		}
 	}
 
 	func.replace(func.length() - 3, 3, "");
 
 	return func;
+}
+
+std::string func_sknf(std::vector<bool> f)
+{
+	std::string func("f_sknf(");
+	int argNum = num_of_args(f);
+
+	for (int i = 1; i <= argNum; i++)
+	{
+		func += "x" + std::to_string(i);
+		if (i != argNum)
+			func += ", ";
+	}
+
+	func += ") = ";
+
+	for (int i = 0; i < f.size(); i++)
+	{
+		if (!f.at(i))
+		{
+			func += "(";
+
+			for (int j = 0; j < argNum; j++)
+			{
+				bool arg = (bool)(i & (int)(pow(2, (argNum - j - 1))));
+
+				if (arg)
+					func += "'";
+
+				func += "x" + std::to_string(j + 1);
+				if (j != argNum - 1)
+					func += " V ";
+			}
+
+			func += ") & ";
+		}
+	}
+
+	func.replace(func.length() - 3, 3, "");
+
+	return func;
+}
+
+std::string func_Zhegalkin(std::vector<bool> f)
+{
+	return std::string();
 }
 

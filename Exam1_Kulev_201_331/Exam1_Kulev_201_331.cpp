@@ -24,6 +24,7 @@ int main()
     printf_s("Table:\n%s\n", fTable.c_str());
 
     printf_s("%s\n", func_sdnf(vec).c_str());
+    printf_s("%s\n", func_sknf(vec).c_str());
 
 
     return 0;
