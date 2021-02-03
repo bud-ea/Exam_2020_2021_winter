@@ -4,7 +4,7 @@
 int main()
 {
     std::vector<bool> vec = {false, true, true, false, false, true, false, false};
-    //printf_s("num_of_args: %d\n", num_of_args(vec));
+    printf_s("num_of_args: %d\n", num_of_args(vec));
 
     /*std::string filePathIn("D:\\vec.txt");
     printf_s("Reading vector from: %s\n", filePathIn.c_str());
