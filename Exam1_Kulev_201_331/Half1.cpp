@@ -59,7 +59,6 @@ bool write_to_file(std::string file_name, std::vector<bool> f)
 std::string table(std::vector<bool> f)
 {
 	std::string table;
-
 	int argNum = num_of_args(f);
 
 	// print table header
@@ -77,13 +76,55 @@ std::string table(std::vector<bool> f)
 			if (j == argNum)
 				table += std::to_string(f.at(i));
 			else 
-			{
-				
+				// some serious bit math
 				table += std::to_string((bool)(i & (int) (pow(2, (argNum - j - 1))))) + "\t";
-			}
+
 		}
 		table += "\n";
 	}
 
 	return table;
 }
+
+std::string func_sdnf(std::vector<bool> f)
+{
+	std::string func("f(");
+	int argNum = num_of_args(f);
+
+	for (int i = 1; i <= argNum; i++)
+	{
+		func += "x" + std::to_string(i);
+		if (i != argNum)
+			func += ", ";
+	}
+
+	func += ") = ";
+
+	for (int i = 0; i < f.size(); i++)
+	{
+		if (f.at(i))
+		{
+			func += "(";
+
+			for (int j = 0; j < argNum; j++)
+			{
+				bool arg = (bool)(i & (int)(pow(2, (argNum - j - 1))));
+
+				if (!arg)
+					func += "!";
+
+				func += "x" + std::to_string(j + 1);
+				if (j != argNum - 1)
+					func += " * ";
+
+			}
+
+			func += ") + ";
+		}
+	}
+
+	func.replace(func.length() - 3, 3, "");
+
+	return func;
+}
+
