@@ -1,0 +1,8 @@
+﻿  IvasyukKirill_201-351.cpp
+C:\Users\outfi\source\repos\Exam_2020_2021_winter\IvasyukKirill_201-351\IvasyukKirill_201-351.cpp(10,16): warning C4129: :
+C:\Users\outfi\source\repos\Exam_2020_2021_winter\IvasyukKirill_201-351\IvasyukKirill_201-351.cpp(10,16): warning C4129: k: неизвестная escape-последовательность
+  func.cpp
+C:\Users\outfi\source\repos\Exam_2020_2021_winter\IvasyukKirill_201-351\func.cpp(7,16): warning C4244: return: преобразование "double" в "int", возможна потеря данных
+C:\Users\outfi\source\repos\Exam_2020_2021_winter\IvasyukKirill_201-351\func.cpp(29,23): warning C4018: <: несоответствие типов со знаком и без знака
+  Создание кода...
+  IvasyukKirill_201-351.vcxproj -> C:\Users\outfi\source\repos\Exam_2020_2021_winter\IvasyukKirill_201-351\Debug\IvasyukKirill_201-351.exe
