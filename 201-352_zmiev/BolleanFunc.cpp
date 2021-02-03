@@ -54,3 +54,91 @@ std::string table(std::vector<bool> f)
 
 	return bufStr;
 }
+
+int roman_to_arab(std::string roman_number)
+{
+	std::map<char, int> romanMap;
+	romanMap['I'] = 1;
+	romanMap['V'] = 5;
+	romanMap['X'] = 10;
+	romanMap['L'] = 50;
+	romanMap['C'] = 100;
+	romanMap['D'] = 500;
+	romanMap['M'] = 1000; //словарь из рамских и арабских цифр
+
+	int prevNum = 0;
+	int result = 0;
+	for (char c : roman_number) //перебираем все символы в римской строке
+	{
+		int currentNum = romanMap[c]; //записываем текущую цифру из словаря
+		if (currentNum < prevNum) //если текущий символ меньше предыдущего, значит мы идём в меньшую сторону и просто плюсуем
+		{
+			result += prevNum;
+			prevNum = currentNum;
+		}
+		else if (currentNum > prevNum) //если значение больше
+		{
+			if (prevNum == 0) //и если предыдущая равна 0 значит мы только начали перебирать
+				prevNum = currentNum;
+			else //если нет, значит у нас ситуация например "IV" и надо вычитать
+			{
+				result += currentNum - prevNum;
+				prevNum = 0;
+			}
+		}
+		else if (currentNum == prevNum) //если текущий и предыдущий равны, просто складываем
+		{
+			result += prevNum + currentNum;
+			prevNum = 0;
+		}
+	}
+
+	return result + prevNum;
+}
+
+std::vector<int> func_Pascal(int k)
+{
+	std::vector<int> result;
+
+	for (int i = 0; i <= k; i++)
+	{ //формула для нахождения последней строки в треугольнике паскаля:
+		result.push_back(fact(k) / (fact((double)k - i) * fact(i)));
+	} //n! / m! * (n-m)!
+
+	return result;
+}
+
+double fact(double num) //функция рекурсивного вычисления факториала
+{
+	if (num == 0) return 1;
+	else return num * fact(num - 1);
+}
+
+int func_substr_len(std::string input_str)
+{
+	int firstChar = 0;
+	int result = 0;
+	std::set<char> charSet; //создаём set в котором будут храниться все символы подстроки
+
+	for (int i = 0; i < input_str.size(); i++) //перебираем строку
+	{
+		if (charSet.find(input_str[i]) == charSet.end()) //если символа нет, значит добавляем 
+		{
+			charSet.insert(input_str[i]);
+		}
+		else //если же есть, то
+		{
+			if (charSet.size() > result) //если размер подстроки больше размера предыдущей
+			{
+				result = charSet.size(); //записываем новое значение
+			}
+			charSet.clear();
+			firstChar++;
+			i = firstChar; //очишаям set и начинаем перебирать строку со следующего элемента
+		}
+	}
+
+	if (result == 0) result = charSet.size(); //если set ниразу не обнулился
+
+	return result;
+}
