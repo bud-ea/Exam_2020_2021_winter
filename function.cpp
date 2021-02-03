@@ -1,6 +1,6 @@
 #include "function.h"
 #include <iostream>
-#include <vector>
+#include <vector> //дл€ векторов
 #include <string> //дл€ ввода строк
 #include <fstream> //дл€ чтени€ и записи файлов
 
@@ -28,7 +28,7 @@ vector<bool> function::read_from_file(std::string file_name) { //C:\Users\DELL I
 	else {
 		p = 1;
 	}
-	ofstream file(file_name);  //открываем файл
+	//ofstream file(file_name);  //открываем файл
 	string s;
 	vector<bool> f;
 	while (!file.eof()) { //провер€ем, кончилс€ ли файл
@@ -74,21 +74,115 @@ bool function::write_to_file(std::string file_name, vector<bool> f) {
 }
 
 std::string function::table(vector<bool> f) {
-
-	return 0;
+	string text;
+	return text;
 }
 
 std::string function::func_sdnf(vector<bool> f) {
-
-	return 0;
+	string text;
+	return text;
 }
 
 std::string function::func_sknf(vector<bool> f) {
-	
-	return 0;
+	string text;
+	return text;
 }
 
 std::string function::func_Zhegalkin(vector<bool> f) {
+	string text;
+	return text;
+}
 
-	return 0;
+//¬“ќ–јя „ј—“№ Ё «јћ≈Ќј
+
+std::string roman_to_arab(std::string roman_number){
+	int num = 0; //записываем итоговое арабское число
+	for (int i = 0; i < roman_number.size(); i++) {
+		if (roman_number[i] == 'I') {
+			if ((roman_number[i + 1] == 'I') || (i == (roman_number.size() - 1))) //проверка есть ли после 1 число кроме 1, чтобы добавить именно 1
+				num++;
+		}
+		if (roman_number[i] == 'V') {
+			if (roman_number[i - 1] == 'I') //проверка 5
+				num = num + 4;
+			else
+				num = num + 5;
+		}
+		if (roman_number[i] == 'X') {
+			if (roman_number[i - 1] == 'I') //проверка 10
+				num = num + 9;
+			if ((roman_number[i + 1] != 'L') && (roman_number[i + 1] != 'C')) //подстраховка чтобы не словить лишнего
+				num = num + 10;
+		}
+		if (roman_number[i] == 'L') {
+			if ((i != 0) && (roman_number[i - 1] == 'X')) //проверка 50
+				num = num + 40;
+			else
+				num = num + 50;
+		}
+		if (roman_number[i] == 'C') {
+			if ((i != 0) && (roman_number[i - 1] == 'X'))//проверка 100
+				num = num + 90;
+			if ((roman_number[i + 1] != 'D') && (roman_number[i + 1] != 'M')) //подстраховка чтобы не словить лишнего
+				num = num + 100;
+		}
+		if (roman_number[i] == 'D') {
+			if ((i != 0) && (roman_number[i - 1] == 'C'))//проверка 500 
+				num = num + 400;
+			else
+				num = num + 500;
+		}
+		if (roman_number[i] == 'M') {
+			if ((i != 0) && (roman_number[i - 1] == 'C'))//проверка 1000
+				num = num + 900;
+			else
+				num = num + 1000;
+		}
+	}
+	cout << num;
+	string text;
+	return text;
+}
+
+int pasc(int n, int k) {//доп функци€ чтобы посчитать треугольник паскал€
+	return ((n < k) ? 0 : ((k == 0) ? 1 : ((n - k + 1) / int(k) * pasc(n, k - 1)))); // вычисление строки треугольника паскал€
+}
+
+std::vector<int> func_Pascal(int k) {
+	vector<int> f;
+	for (int i = 0; i <= k; i++){
+		if (i == k){
+			for (int j = 0; j <= i; j++){
+				cout << pasc(i, j) << " "; //вывод части треугольника паскал€
+			}
+		}
+	}
+	return f;
+}
+
+int func_substr_len(std::string input_str) {
+	bool p = 1; //дл€ проверки совпадений
+	int k = 0; //счетчик совпадений
+	int max = k; //максимальна€ длина без повторений
+	vector<char> f; //вектор дл€ 
+	for (int i = 0; i < input_str.size(); i++) {
+		if (input_str[i] != input_str[i + 1]) {
+			k++;
+			for (int j = 0; j < f.size(); j++) { //проверка совпадение уже учтенных букв
+				if (f[j] == input_str[i])
+					p = 0;
+			}
+			f.push_back(input_str[i]); //добавление новых букв
+		}
+		else {
+			k = 0;
+			f.clear(); //очитстить вектор
+		}
+
+		if ((k >= max) && (p == 1)) { //замена большего числа
+			max = k;
+		}
+	}
+	cout << max;
+	return max;
 }
