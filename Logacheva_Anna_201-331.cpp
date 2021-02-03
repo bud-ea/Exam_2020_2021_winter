@@ -1,8 +1,8 @@
-#include <iostream>
+#include <iostream>//стандартсная библиотека 
 #include <vector>//для вектора
 #include "Logacheva_Anna_201-331.h"
-#include "Source.cpp"
-#include <fstream>
+#include "Source.cpp"// описани алгоритмов 
+#include <fstream>// работа с файлами
 using namespace std;
 int main()
 {
