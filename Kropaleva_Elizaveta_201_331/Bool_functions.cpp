@@ -1,6 +1,12 @@
 #include "Bool_functions.h"
 #include <fstream> //библиотека дл€ работы с fstream
 #include <bitset> //библиотека дл€ работы с двоичным представлением
+#include <set> //библиотека дл€ работы с set
+
+struct num {
+	char roman;
+	int arab;
+};
 
 /* ѕо заданному вектору значений f булевой функции возвращает количество аргументов n этой функции. ƒлина вектора f есть pow(2,n). */
 int num_of_args(vector<bool> f) {
@@ -122,4 +128,54 @@ std::string table(vector<bool> f) {
 		}
 	}
 	return table;
+}
+
+/*индекс в векторе database дл€ текущего значени€*/
+int index_database(char roman_number) {
+	vector <num> database = { {'I', 1}, {'V', 5}, {'X', 10}, {'L', 50}, {'C', 100}, {'D', 500}, {'M', 1000} };
+	for (int j = 0; j < 7; j++) 
+		if (roman_number == database[j].roman) return j;
+}
+
+/*¬о входной строке записано римское число, не превышающее трех тыс€ч. Ќеобходимо вернуть записать его в арабской.*/
+int roman_to_arab(std::string roman_number) {
+	int arab_number = 0;
+	vector <num> database = { {'I', 1}, {'V', 5}, {'X', 10}, {'L', 50}, {'C', 100}, {'D', 500}, {'M', 1000} }; // вектор со значени€ми дл€ перевода 
+	for (int i = 0; i < roman_number.length(); i++) {
+			int cur_index = index_database(roman_number[i]); // индекс в векторе database дл€ текущего значени€
+			if (i < roman_number.length() - 1 && database[cur_index].arab < database[index_database(roman_number[i + 1])].arab) arab_number -= database[cur_index].arab; 
+			else arab_number += database[cur_index].arab;
+	}
+
+	return arab_number;
+}
+
+/*“реугольник ѕаскал€*/
+std::vector<int> func_Pascal(int k) {
+	vector <int> rez(k + 1, 0); //вектор длины k, заполненный 0
+	rez[0] = 1;
+	for (int i = 1; i <= k; i++)
+		for (int j = i; j >= 1; j--)
+			rez[j] = rez[j - 1] + rez[j]; // сумма 2 чисел над текущим числом
+	
+	return rez;
+};
+
+/* ѕо заданной строке input_str вернуть число, равное размеру самой длинной подстроки, котора€ не содержит повтор€ющихс€ символов.*/
+int func_substr_len(std::string input_str) {
+	set<char> letter; // множество, которое хранит уникальные буквы
+	int size_set = 0, max = 0; 
+	for (int i = 0; i < input_str.length(); i++) {
+		letter.insert(input_str[i]);
+		if (letter.size() > size_set)  // проверка €вл€етс€ ли буква повтор€ющейс€
+			size_set = letter.size();
+		else { 
+			if (size_set > max) max = size_set;
+			size_set = 0;
+			letter.clear();
+		}
+	}
+	if (size_set > max) max = size_set; // обрабатываетс€ случай, когда нужна€ подстрока в конце
+
+	return max;
 }

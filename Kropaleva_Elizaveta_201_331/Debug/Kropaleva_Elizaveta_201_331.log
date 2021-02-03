@@ -1,4 +1,4 @@
 ﻿  Kropaleva_Elizaveta_201_331.cpp
-C:\Users\Лиза\Desktop\~\Языки программирования\Exam\Kropaleva_Elizaveta_201_331\Kropaleva_Elizaveta_201_331\Kropaleva_Elizaveta_201_331.cpp(14,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Лиза\Desktop\~\Языки программирования\Exam\Kropaleva_Elizaveta_201_331\Kropaleva_Elizaveta_201_331\Kropaleva_Elizaveta_201_331.cpp(17,43): warning C4390: ";": обнаружен пустой контролируемый оператор; это правильно?
+C:\Users\Лиза\Desktop\~\Языки программирования\Exam\Kropaleva_Elizaveta_201_331\Kropaleva_Elizaveta_201_331\Kropaleva_Elizaveta_201_331.cpp(18,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Лиза\Desktop\~\Языки программирования\Exam\Kropaleva_Elizaveta_201_331\Kropaleva_Elizaveta_201_331\Kropaleva_Elizaveta_201_331.cpp(21,43): warning C4390: ";": обнаружен пустой контролируемый оператор; это правильно?
   Kropaleva_Elizaveta_201_331.vcxproj -> C:\Users\Лиза\Desktop\~\Языки программирования\Exam\Kropaleva_Elizaveta_201_331\Debug\Kropaleva_Elizaveta_201_331.exe
