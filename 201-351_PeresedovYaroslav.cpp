@@ -1,4 +1,4 @@
-﻿#include "201-351_Peresedov-Yaroslav.h"
+﻿#include "201-351_PeresedovYaroslav.h"
 
 
 
@@ -147,8 +147,94 @@ string func_sknf(vector <bool> f)
 
     //я скопировал функцию sdnf, поменяв числа
 }
+
+vector<int> func_Pascal(int k)
+{
+    vector<int> x1 = { 1 };
+    if (k == 0)
+    {
+        return x1;
+    }
+    vector<int> x2(x1.size()); //x2 - вектор, размером на 1 больше чем x1. Туда идут суммы соседних чисел из x1
+    for (int x = 0; x < k + 1; x++) 
+    {
+        for (int i = 1; i < x2.size() - 1; i++)
+        {
+            x2[i] = x1[i - 1] + x1[i];
+        }
+        x2[0] = 1;
+        x2[x2.size() - 1] = 1;
+        x1 = x2;
+        x2.push_back(1); //x1 и x2 постоянно растут, пока мы не получим вектор с нужной строчкой
+    }
+
+    return x2;
+}
+int symbol_val(char x)
+{
+    switch(x)
+    {
+    case 'I': return 1; break;
+    case 'V': return 5; break;
+    case 'X': return 10; break;
+    case 'L': return 50; break;
+    case 'C': return 100; break;
+    case 'D': return 500; break;
+    case 'M': return 1000; break;
+    }
+}
+
+int roman_to_arab(string roman_number)
+{
+    int tier = 0;
+    int value = 0;
+    for (int i = roman_number.size() - 1; i >= 0; i--) //исследуем число сзади, чтобы проще было считать разряды
+    {
+        if (symbol_val(roman_number[i]) >= tier) {
+            tier = symbol_val(roman_number[i]);
+            value += symbol_val(roman_number[i]); //сравнение с максимальной записанной цифрой (tier) позволяет понять, 
+                                                 //вычесть цифру или прибавить
+        }
+        else
+        {
+            value -= symbol_val(roman_number[i]);
+        }
+    }
+    return value;
+}
+
+int func_substr_len(string input_str)
+{
+    int score = 1;
+    int highscore = 1;
+    bool fail = false;
+    for (int i = 0; i < input_str.length() - 1; i++)//решено просто за O(n^3)
+    {
+        score = 1;
+        for (int x = i + 1; x < input_str.length(); i++)
+        {
+            if (fail)
+                fail = false;
+                break;
+            for (int j = i; j < x; j++)
+            {
+                if (input_str[j] != input_str[x])
+                    score++;
+                else
+                {
+                    fail = true;
+                    break;
+                }
+            }
+        }
+        highscore = std::max(score, highscore);
+    }
+    return highscore;
+}
 int main()
 {
     vector <bool> test1{ 1, 0, 0, 1, 1, 1, 1, 1 };
-    cout << func_sknf(test1);
+    int k = 5;
+    cout << func_substr_len("abrrr");
+
 }
