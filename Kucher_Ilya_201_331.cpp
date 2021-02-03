@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {
 	vector <bool> f;
-	string file_name;
+	string file_name("D:\\vec.txt");
 	int n;
 	cin >> n;
 	f.resize(pow(2, n));
@@ -22,6 +22,6 @@ int main()
 		cout << f[i];
 	}
 	cout << endl << num_of_args(f) << endl;
-	cout << table(f) <<endl;
-
+	cout << table(f) << endl;
+	
 }
