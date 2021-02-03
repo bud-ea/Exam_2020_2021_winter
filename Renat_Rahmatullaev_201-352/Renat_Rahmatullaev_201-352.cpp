@@ -11,9 +11,11 @@ using namespace std;
 int main()
 {
     string q = "D:\qwe.txt";
+    string e = "D:\eqw.txt";
     vector<bool> w;
     w = read_from_file(q);
-    for (int i = 0; i < w.size(); i++)
-        cout << w[i] << ' ';
+    
+    cout <<write_to_file(e, w);
+
 }
 
