@@ -125,8 +125,8 @@ int func(string input_string) {
 int bio_k(int m, int n)
 {
     int fact_n = 1;
-    int fact_m = 1;
-    int fact_n_m = 1;
+    int fact_k = 1;
+    int fact_n_k = 1;
     //дальше идёт формула биноминальных коэффициентов(через факториал)
     for (int i = 1; i <= n; i++)
     {
@@ -134,13 +134,13 @@ int bio_k(int m, int n)
     }
     for (int i = 1; i <= m; i++)
     {
-        fact_m *= i;
+        fact_k *= i;
     }
     for (int i = 1; i <= (n - m); i++)
     {
-        fact_n_m *= i;
+        fact_n_k *= i;
     }
-    return fact_n / (fact_m * fact_n_m);
+    return fact_n / (fact_n * fact_n_k);
 }
 vector <int> func_Pascal(int k)
 {
