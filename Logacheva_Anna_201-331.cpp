@@ -18,4 +18,19 @@ int main()
 	//std::string func_sdnf (vector<bool> f)
 	//std::string func_sknf (vector<bool> f)
 	//std::string func_Zhegalkin (vector<bool> f)
+
+	// вторая часть экзамена 
+	
+	string chislo;
+	cout << "Введите число на арабском" << endl;
+	cin >> chislo;
+	int roman_to_arab(string chislo);
+	cout << "Введите число" << endl;
+	int k;
+	cin >> k;
+    vector<int>func_Pascal(int k);
+	cout << "Введите строку" << endl;
+	string stroka;
+	cin >> stroka;
+	
 }
