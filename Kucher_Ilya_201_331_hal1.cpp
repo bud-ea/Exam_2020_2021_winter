@@ -1,9 +1,9 @@
 ﻿#include "Kucher_Ilya_201_331_hal1.h"
-#include <vector>
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <unordered_set>
+#include <vector> // библиотека для подключения вектора
+#include <iostream> // библиотека вводавывода
+#include <string> // библиотека для работы с с++ строками
+#include <fstream> // библиотека для работы с файлами
+#include <unordered_set> // библиотека для подключения неупорядоченного множества
 
 int num_of_args(std::vector<bool>f)
 {
