@@ -35,9 +35,11 @@ vector<bool> read_from_file(std::string file)
 bool write_to_file(string file_name, vector<bool> f) {
 	fstream fs;								//создание объекта при работе в С++
 	fs.open(file_name, fstream::out);  //открытие файла, режим: на запись
-	if (fs.fail()) return false;
-	for (int i = 0; i < f.size(); i++) fs << f[i] << " ";
-	fs.close();
+	if (fs.fail()) 
+        return false;
+	for (int i = 0; i < f.size(); i++) 
+        fs << f[i] << " ";
+	fs.close(); //закрываем файл
 	return true;
 }
 /*Во входной строке записано римское число, не превышающее трех тысяч. Необходимо вернуть записать его в арабской.*/
@@ -125,6 +127,7 @@ int bio_k(int m, int n)
     int fact_n = 1;
     int fact_m = 1;
     int fact_n_m = 1;
+    //дальше идёт формула биноминальных коэффициентов(через факториал)
     for (int i = 1; i <= n; i++)
     {
         fact_n *= i;
