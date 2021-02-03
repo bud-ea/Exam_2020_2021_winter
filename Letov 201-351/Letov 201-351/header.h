@@ -5,6 +5,8 @@
 #include <fstream>
 #include <bitset>
 
+
+using std::reverse;
 using std::vector;
 using std::string;
 using std::cin;

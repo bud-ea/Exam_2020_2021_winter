@@ -4,7 +4,9 @@ vector<bool> read_from_file(std::string file_name)
 {
 	vector<bool> rtrn;
 	string temp;
+
 	ifstream orig(file_name, ifstream::in);
+
 	if (orig.is_open())
 	{
 		getline(orig, temp);
@@ -55,20 +57,70 @@ string table(vector<bool> f)
 {
 	int power = num_of_args(f);
 	string rtrn;
+	string buf;
 	int counter = 0;
 	for (int i = 0; i < f.size(); i++)
 	{
-		string num = std::bitset<16>(counter)
+		int j = i;
+		counter = 0;
+		do
+		{
+			buf.append(std::to_string(j % 2));
+			j /= 2;
+			counter++;
+		} while (j != 0 || counter < power);
+		reverse(buf.begin(), buf.end());
+		rtrn.append(buf + ' ' + std::to_string(f[i]) + '\n');
+		buf.clear();
+	}
+	return rtrn;
+}
+
+//std::string func_sdnf(vector<bool> f)
+//{
+//	string rtrn;
+//	string sub = "x ";
+//	for (int i = 0; i < f.size(); i++)
+//	{
+//		//if (f[i] = )
+//	}
+//	return rtrn;
+//}
+
+bool XOR(bool x, bool y)
+{
+	return (x + y) % 2;
+}
+
+std::string func_Zhegalkin(vector<bool> f)
+{
+	string rtrn;
+	string buf;
+
+	for (int i = 0; i < f.size(); i++)
+		buf.append(std::to_string(f[i]));
+
+	int counter = f.size();
+
+	for (int i = 0; i < f.size(); i++)
+	{
+		int counter = f.size() - i;
+
+		for (int j = 0; j < f.size() - i; j++);
+		{
+			buf.append(std::to_string(XOR(buf.size() - counter, buf.size() - counter + 1)));
+		}
 		
 	}
-
+	return rtrn;
 }
 
 int main()
 {
-	vector<bool> temp = { 0, 1, 0, 1, 1 };
-	string tin = "C:/Users/leto1/source/repos/Exam_2020_2021_winter/Letov 201-351/Letov 201-351/test_in.txt";
-	write_to_file(tin, temp);
+	vector<bool> temp = { 0, 0, 0, 1, 0, 0, 0, 1 };
+	cout << func_Zhegalkin(temp);
+	//string tin = "C:/Users/leto1/source/repos/Exam_2020_2021_winter/Letov 201-351/Letov 201-351/test_in.txt";
+	//write_to_file(tin, temp);
 	/*vector<bool> zxc;
 	string tout = "C:/Users/leto1/source/repos/Exam_2020_2021_winter/Letov 201-351/Letov 201-351/test_out.txt";
 	zxc = read_from_file(tout);
