@@ -1,16 +1,12 @@
-﻿#include <iostream>
+﻿#include <iostream>//Ввод-вывод
 #include <vector>		// библиотека для работы с vector
 #include "Header1.h"		// заголовочный файл с написанным функциями 
 #include <cstdlib> // Библиотека для систем
 
-using namespace std;
 
-int main()
-{
-	vector<bool> f = { 0, 1, 0 , 0, 1, 1, 0, 0 };
-	cout << num_of_args(f) << endl;
-	vector <bool> f1 = read_from_file("D:\\vector.txt");
-	int size = read_from_file("D:\\vector.txt").size();
-	for (int i = 0; i < size; i++) cout << f1[i] << endl;
+int main() {
+	cout <<"Converter "<< roman_to_arab("MCMLXVII") << endl;
+	cout << "Str "<<func("pwwkew") << endl;
 	system("pause");
+	return 0;
 }
