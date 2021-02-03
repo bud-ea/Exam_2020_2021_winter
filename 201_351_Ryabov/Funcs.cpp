@@ -37,7 +37,8 @@ bool write_to_file(std::string file_name, std::vector<bool> f) //функция вывода 
 		
 		return true;
 	}
-	else {
+	else 
+	{
 		return false;
 	}
 }

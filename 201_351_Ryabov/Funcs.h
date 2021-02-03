@@ -1,8 +1,8 @@
 #pragma once
-#include <iostream>
-#include <vector>
-#include <string>
-#include <fstream>
+#include <iostream>		//дл€ работы с вводом и выводом в консоль
+#include <vector>		//дл€ работы с векторами
+#include <string>		//дл€ работы со строками
+#include <fstream>		//дл€ работы с файлами
 #include <cmath>		//std::log
 #include <algorithm>	//std::reverse
 
