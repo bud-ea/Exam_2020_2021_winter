@@ -300,20 +300,32 @@ void True_to_Cesar()
         cout << dec_num;
 
 }
+long long int fact(int cucumber)
+{
+    if(cucumber>1)
+    return cucumber*fact(cucumber-1);
+    else
+    return 1;
+}
 void pas()
 {
-
+    int number;
+    long long int out_of_space;
+    for(int i=0;i<number;++i)
+    {
+            cout/*out_of_space*/<< fact(number)/(fact(i)*fact(number-i)) << " ";
+    }
 
 }
 int main()
 {
 
-       short switcher;;
+       short switcher;
        setlocale(0," ");
        cout << "Введите 1 для треугольника Паскаля\nВведите 2 для римских цифр\n";
        for(;;cout << ">")
        {
-            cin >> swithcer;
+            cin >> switcher;
             switch(switcher)
             {
                 case 1:
