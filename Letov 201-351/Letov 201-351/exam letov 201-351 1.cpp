@@ -115,10 +115,101 @@ std::string func_Zhegalkin(vector<bool> f)
 	return rtrn;
 }
 
+std::vector<int> func_Pascal(int k)
+{
+	vector<int> rtrn;
+	unsigned long coef;
+
+	coef = 1;
+	for (int j = 0; j <= k; j++) 
+	{
+		rtrn.push_back(coef);
+		coef *= (k - j);
+		coef /= (j + 1);
+	}
+	return rtrn;
+}
+
+void clear(bool* mas) // функция для возвращения хранилища в исходное положение 
+{
+	for (int j = 0; j < 26; j++)
+		mas [j] = false;
+}
+
+int func_substr_len(std::string input_str)
+{
+	int max = 0, counter = 0;
+	bool storage[26] = { false }; // инициализация массива-хранилища для подсчета встречаемых букв
+
+	for (int i = 0; i < input_str.size(); i++)
+	{
+		
+		if (storage[input_str[i] - 97] == false) // проверка, что в хранилище еще нет такой буквы
+		{
+			counter++;
+			storage[input_str[i] - 97] = true; // помечаем в хранилище, что буква уже встречалась
+		}
+		else
+		{
+			counter = 1; // единица, потому что нудно учитывать последнюю букву, которая входит в ряд одинаковых (abbbc)
+			clear(storage);
+			storage[input_str[i] - 97] = true; // опять же для учета текущий буквы
+		}
+		if (counter > max)
+			max = counter;
+	}
+
+	return max;
+}
+
+int roman_to_arab(std::string roman_number)
+{
+	int arab_num = 0;
+
+	map<char, int> RA;
+	RA['I'] = 1;
+	RA['V'] = 5;
+	RA['X'] = 10;
+	RA['L'] = 50;
+	RA['C'] = 100;
+	RA['D'] = 500;
+	RA['M'] = 1000;
+
+	vector<int> arab_number;
+	int counter = 1;
+
+	for (int i = 0; i < arab_number.size() - 1 ; i++)
+	{
+		if (arab_number[i] < arab_number[i + 1])
+			arab_number[i] *= -1;
+		else if (arab_number[i] == arab_number[i + 1])
+		{
+			int counter = 1;
+
+			while (arab_number[i] == arab_number[i + 1])
+				counter++;
+
+		}
+	}
+	for (int i = 0; i < roman_number.size(); i++)
+		arab_number.push_back(RA[roman_number[i]]);
+	for (int i = 0; i < arab_number.size(); i++)
+		cout << arab_number[i] << ' ';
+	return arab_num;
+}
+
 int main()
 {
-	vector<bool> temp = { 0, 0, 0, 1, 0, 0, 0, 1 };
-	cout << func_Zhegalkin(temp);
+	string tmp = "MCMXCIV"; //qwertyqqqewerwqerqwertyusadf
+	cout << roman_to_arab(tmp);
+	
+	/*vector<int> temp;
+	temp = func_Pascal(0);
+	for (int i = 0; i < temp.size(); i++)
+		cout << temp[i];*/
+
+	//vector<bool> temp = { 0, 0, 0, 1, 0, 0, 0, 1 };
+	//cout << func_Zhegalkin(temp);
 	//string tin = "C:/Users/leto1/source/repos/Exam_2020_2021_winter/Letov 201-351/Letov 201-351/test_in.txt";
 	//write_to_file(tin, temp);
 	/*vector<bool> zxc;

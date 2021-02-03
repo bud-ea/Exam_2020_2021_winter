@@ -4,8 +4,9 @@
 #include <iostream>
 #include <fstream>
 #include <bitset>
+#include <map>
 
-
+using std::map;
 using std::reverse;
 using std::vector;
 using std::string;
@@ -29,3 +30,9 @@ std::string func_sdnf(vector<bool> f);
 std::string func_sknf(vector<bool> f);
 
 std::string func_Zhegalkin(vector<bool> f);
+
+std::vector<int> func_Pascal(int k);
+
+int func_substr_len(std::string input_str);
+
+int roman_to_arab(std::string roman_number);
