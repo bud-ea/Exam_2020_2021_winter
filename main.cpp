@@ -61,7 +61,7 @@ int main()
             {
             cout << "Введите путь до файла (файл по умолчанию base.txt)\n";
             cin >> nameout;
-            cout  << in();
+            cout  << in() << "\n";
         break;}
         case 2:
             kol();
