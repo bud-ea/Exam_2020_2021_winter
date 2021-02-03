@@ -18,12 +18,12 @@
     <ClCompile Include="Kucher_Ilya_201_331.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Class.cpp">
+    <ClCompile Include="Kucher_Ilya_201_331_hal1.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Class.h">
+    <ClInclude Include="Kucher_Ilya_201_331_hal1.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
