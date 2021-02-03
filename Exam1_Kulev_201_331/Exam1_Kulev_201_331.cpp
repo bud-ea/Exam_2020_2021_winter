@@ -1,9 +1,28 @@
 #include "Half1.h"
+#include "Half2.h"
 #include <iostream>
+
+void runHalf1();
+void runHalf2();
 
 int main()
 {
-    std::vector<bool> vec = {false, true, true, false, false, true, false, false};
+    //runHalf1();
+    runHalf2();
+
+
+    return 0;
+}
+
+void runHalf2()
+{
+    std::string roman("MCMLXXXIV");
+    printf_s("Roman (%s) to arabic: %d\n", roman.c_str(), roman_to_arab(roman));
+}
+
+void runHalf1()
+{
+    std::vector<bool> vec = { false, true, true, false, false, true, false, false };
     printf_s("num_of_args: %d\n", num_of_args(vec));
 
     // PLEASE CHANGE FILE NAME!
@@ -27,7 +46,4 @@ int main()
 
     printf_s("%s\n", func_sdnf(vec).c_str());
     printf_s("%s\n", func_sknf(vec).c_str());
-
-
-    return 0;
 }

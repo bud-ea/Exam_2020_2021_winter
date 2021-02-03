@@ -21,9 +21,21 @@
     <ClCompile Include="Half1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Half2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StringExt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Half1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Half2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StringExt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
