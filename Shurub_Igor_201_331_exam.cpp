@@ -1,12 +1,11 @@
 ﻿// Shurub_Igor_201_331_exam.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 #include "Header.h"
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <vector>
+#include <iostream>// для ввода выода и простейших операций
+#include <string>// использование строк
+#include <fstream>// для работы с файлом
+#include <vector> // для работы с вектором
 using namespace std;
-
 /*int main()
 {
 	setlocale(LC_ALL, "RUS");
@@ -27,7 +26,7 @@ using namespace std;
 	return 0;
 }
 */
-
+/*
 int main()
 {
 	using namespace std;
@@ -50,16 +49,73 @@ int main()
 
 		return 0;
 }
+*/
 
 
-
-int main()
+/*int main()
 {
 	setlocale(LC_ALL, "RUS");
-	tt();
+	f();
 	return 0;
 }
-
+*/
+/*
+int main()
+{
+	std::ofstream out;          // поток для записи
+	out.open("D:\\file_name.txt"); // окрываем файл для записи
+	if (out.is_open())
+	{
+		out << "1 0 1 0 1" << std::endl;
+		cout << "true";
+	}
+	return 0;
+}
+*/
+//По заданному вектору 
+//значений f булевой функции 
+//вернуть строку, в 
+//которой записана СДНФ этой булевой функии.
+/*
+int main() 
+{
+	setlocale(LC_ALL, "RUS");
+	vector <bool> f;
+	int size = 3;
+	bool el;
+	cout << "Функция ";
+	for (int i = 0; i < size; i++) {
+		cin >> el;
+		f.push_back(el);
+	}
+	bool x0 = f.at(0), x1 = f.at(1), x2 = f.at(2);//Возвращает ссылку на элемент в указанном месте с проверкой границ.
+	unsigned int m = pow(2, size);
+	cout << " x0 " << "x1 " << " x2 " << " СКНФ " << endl;
+	cout << " " << x0 << "  " << x1 << "  " << x2 << " " << " --- " << (!x0 || x1 || !x2) && (!x0 || x1 || x2) && (x0 || !x1 || x2) && (x0 || x1 || x2);
+}
+*/
+// По заданному вектору значений f булевой функции вернуть строку,	
+//в которой записана СКНФ этой булевой функии. 
+//Считать, что имена аргументов это х1, х2, х3, х4 и 
+//Конъюнкция обозначается&, дизъюнкция V, отрицание '
+/*
+int main()
+{
+setlocale(LC_ALL, "RUS");
+vector <bool> f;
+int size = 3;
+bool el;
+cout << "Функция ";
+for (int i = 0; i < size; i++) {
+	cin >> el;
+	f.push_back(el);
+}
+bool x0 = f.at(0), x1 = f.at(1), x2 = f.at(2);//Возвращает ссылку на элемент в указанном месте с проверкой границ.
+int m = pow(2, size);
+cout << " x0 " << "x1 " << " x2 " << " СДНФ " << endl;
+cout << " " << x0 << "  " << x1 << "  " << x2 << " " << " --- " <<  (!x0 && !x1 && !x2) || (!x0 && x1 && !x2) || (x0 && x1 && x2) || (x0 && x1 && !x2);
+}
+*/
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
 
