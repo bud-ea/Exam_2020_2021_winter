@@ -1,0 +1,2 @@
+C:\Users\ryabo\source\repos\Exam_2020_2021_winter\201_351_Ryabov\x64\Debug\201_351_Ryabov.exe
+C:\Users\ryabo\source\repos\Exam_2020_2021_winter\201_351_Ryabov\x64\Debug\201_351_Ryabov.pdb
