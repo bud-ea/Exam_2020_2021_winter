@@ -1,2 +1,13 @@
-﻿  Miloradov_Vladimir_201_351.cpp
+﻿  Class1.cpp
+C:\Users\milor\source\repos\Miloradov_Vladimir_201_351\Miloradov_Vladimir_201_351\Class1.cpp(21,26): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\milor\source\repos\Miloradov_Vladimir_201_351\Miloradov_Vladimir_201_351\Class1.cpp(43,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\milor\source\repos\Miloradov_Vladimir_201_351\Miloradov_Vladimir_201_351\Class1.cpp(161,29): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\milor\source\repos\Miloradov_Vladimir_201_351\Miloradov_Vladimir_201_351\Class1.cpp(175,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\milor\source\repos\Miloradov_Vladimir_201_351\Miloradov_Vladimir_201_351\Class1.cpp(183,24): warning C4018: >: несоответствие типов со знаком и без знака
+  Miloradov_Vladimir_201_351.cpp
+  Создание кода...
   Miloradov_Vladimir_201_351.vcxproj -> C:\Users\milor\source\repos\Miloradov_Vladimir_201_351\Debug\Miloradov_Vladimir_201_351.exe
