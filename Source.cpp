@@ -52,3 +52,110 @@ string table(vector<bool> f)
         cout << ("%d\t%d\t%d\t%d\t", a[i], a[i + 1], a[i + 2], a[i + 3]);
     }
 }
+int roman_to_arab(string chislo)
+{
+    int n = sizeof chislo;//смотрим количество цифр в числе
+    int arab = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (chislo[i] == 'I')
+        {
+            if (chislo[i + 1] == 'V')// проверяем особый случай
+            {
+                arab += 4;
+                i++;
+            }
+            else if (chislo[i + 1] == 'X')// проверяем особый случай
+            {
+                arab += 9;
+                i++;
+            }
+            else
+            {
+                arab += 1;
+            }
+        }
+        else if (chislo[i] == 'V')
+        {
+            arab += 5;
+
+        }
+        else if (chislo[i] == 'X')
+        {
+
+            if (chislo[i + 1] == 'L')// проверяем особый случай
+            {
+                arab += 40;
+                i++;
+            }
+            else if (chislo[i + 1] == 'C')// проверяем особый случай
+            {
+                arab += 90;
+                i++;
+            }
+            else {
+                arab += 10;
+
+            }
+        }
+        else if (chislo[i] == 'C')
+        {
+
+            if (chislo[i + 1] == 'D')// проверяем особый случай
+            {
+                arab += 400;
+                i++;
+            }
+            else if (chislo[i + 1] == 'M') // проверяем особый случай
+            {
+                arab += 900;
+                i++;
+            }
+            else {
+                arab += 100;
+
+            }
+
+        }
+        else if (chislo[i] == 'D')
+        {
+            arab += 500;
+
+        }
+        else if (chislo[i] == 'M')
+        {
+            arab += 1000;
+
+        }
+
+
+    };
+    cout << arab << endl;
+    return arab;
+
+}
+vector<int> func_Pascal(int k)
+{
+    vector<int> line = { 1, 1 };//вторая строка треугольника
+    switch (k)
+    {
+    case 0:
+        return vector<int> { 1 };// первая строка треугольника 
+
+    case 1:
+        return line;
+    }
+
+    for (int i = 2; i <= k; i++)
+    {
+        vector<int> currentLine = { 1 };
+        for (int j = 0; j < i - 1; j++)
+        {
+            currentLine.push_back(line.at(j) + line.at(j + 1));// выстраиваем треугольник Паскаля
+        }
+        currentLine.push_back(1);
+        line = currentLine;//присваеваем переменной последнюю строку
+    }
+
+    return line;
+}
