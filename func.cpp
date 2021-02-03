@@ -1,60 +1,42 @@
 #include <iostream> // cout cin
 #include <vector> // для работы с векторами
 #include <math.h> // для математических операций
-#include <fstream>
-#include <string>
+#include <fstream> // для чтения/записи данных из/в файл
+#include <string> // для работы со строками
+#include "func.h"
 
 using namespace std;
 
-const string file = {"F:\\file.txt"}; // расположение файла1
-const string file2 = {"F:\\file2.txt"}; // расположение файла2
+const string file = {"D:\\file.txt"}; // расположение файла1
+const string file2 = {"D:\\file2.txt"}; // расположение файла2
 
-vector<bool> f; // вектор по умолчанию
+vector <bool> f; // вектор по умолчанию
 
-vector<bool> read_from_file(string file_name) { // чтение значений из файла
-    vector<bool> vec; // вектор который возвращаем
-    string str;
-    ifstream out(file_name);
-    if (!out.is_open()) {
-        cout << "Ошибка открытия файла!\n";
-    } else {
-        while (!out.eof()) { // цикл считывания значений
-            str = "";
-            out >> str;
-            if (str == "") continue;
-            vec.push_back(stoi(str)); // передача значений в вектор
-        }
-    }
-    out.close(); // закрываем файл
-    return vec;
-}
 
-bool write_to_file(std::string file_name, vector<bool> f) {
-    ofstream in;
-    bool v;
-    in.open(file_name, ios::app);
-    int i;
-    for (i = 0; i < f.size() - 1; i++) {
-        in << f[i] << " ";
-    }
-    in << f[i];
-    in.close();
-    vector<bool> vec;
-    vec = read_from_file(file_name);
-    if (vec == f) {
-        v = true;
-    }
-
-    return v;
-}
-
-int num_of_args(vector<bool> f) {
-    int n = log2(f.size());
-    return n;
-}
 
 int main() {
+    setlocale(0, " ");
     f = read_from_file(file);
     bool tr = write_to_file(file2, f);
-    cout << tr;
+    int a = num_of_args(f);
+    cout << "1 Задание: " << a << endl;
+    cout << "2 Задание: ";
+    for (int i = 0; i < f.size(); i++){
+        cout << f[i];
+    }
+    cout << endl;
+    cout << "3 Задание:";
+    if (tr == 1){
+        cout << "True";
+    } else{
+        cout << "False";
+    }
+    cout << endl;
+    cout << "4 задание: ";
+    string string1 = table(f);
+    cout << string1;
+    cout << endl;
+    cout << "5 Задание: ";
+    string string2 = func_sdnf(f);
+    cout << string2;
 }
