@@ -3,7 +3,7 @@
 
 int num_of_args(std::vector<bool> f)
 {
-	return sqrt(f.size());
+	return (int) log2(f.size());
 }
 
 std::vector<bool> read_from_file(std::string file_name)
