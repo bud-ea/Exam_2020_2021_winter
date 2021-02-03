@@ -141,6 +141,9 @@
   <ItemGroup>
     <ClCompile Include="201-351_PeresedovYaroslav.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="201-351_PeresedovYaroslav.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
