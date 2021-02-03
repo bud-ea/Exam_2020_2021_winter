@@ -1,7 +1,7 @@
-#include <iostream>// библиотека вводавывода
-#include <vector>// библиотека для подключения контейнера вектор
-#include <string>// библиотека для работы с с++ строками
-#include "Pavlov_K.h"//подключаем класс
+#include <iostream>// ГЎГЁГЎГ«ГЁГ®ГІГҐГЄГ  ГўГўГ®Г¤Г ГўГ»ГўГ®Г¤Г 
+#include <vector>// ГЎГЁГЎГ«ГЁГ®ГІГҐГЄГ  Г¤Г«Гї ГЇГ®Г¤ГЄГ«ГѕГ·ГҐГ­ГЁГї ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  ГўГҐГЄГІГ®Г°
+#include <string>// ГЎГЁГЎГ«ГЁГ®ГІГҐГЄГ  Г¤Г«Гї Г°Г ГЎГ®ГІГ» Г± Г±++ Г±ГІГ°Г®ГЄГ Г¬ГЁ
+#include "Pavlov_K.h"//ГЇГ®Г¤ГЄГ«ГѕГ·Г ГҐГ¬ ГЄГ«Г Г±Г±
 using namespace std;
 
 int main() {
@@ -41,7 +41,7 @@ int main() {
 	cout << roman_to_arab("MMDCCCXLIX") << endl;
 	//____________________Zadanie8_________________________
 	cout << "Zadanie8" << endl;
-	cout << "число k для треугольника Паскаля = 4 " << endl;
+	cout << "Chislo k dlya treygolnika Paskalya = 4 " << endl;
 	int k = 4; 
 	func_Pascal(k);
 	//____________________Zadanie9_________________________
