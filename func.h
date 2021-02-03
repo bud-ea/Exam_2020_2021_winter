@@ -1,13 +1,13 @@
 #include <iostream>
 #include <vector> // для работы с векторами
 #include <math.h> // для математических операций
-#include <fstream> //
+#include <fstream> // для записи/чтения из файла
 #include <string> // для работы со строками
 
 using namespace std;
 
 
-int num_of_args(vector<bool> f) {
+int num_of_args(vector<bool> f) { // получение кол-ва переменных
   int n = log2(f.size());
   return n;
 }

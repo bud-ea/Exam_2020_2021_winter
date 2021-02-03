@@ -1,6 +1,6 @@
 #include <iostream> // cout cin
 #include <vector> // для работы с векторами
-#include "func.h"
+#include "func.h" // с функциями
 #include <string> // для работы со строками
 
 using namespace std;
