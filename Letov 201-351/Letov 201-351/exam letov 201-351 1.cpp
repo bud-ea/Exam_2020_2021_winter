@@ -1,4 +1,4 @@
-#include <C:\Users\leto1\source\repos\Exam_2020_2021_winter\Letov 201-351\Letov 201-351\header.h>s
+#include <C:\Users\leto1\source\repos\Exam_2020_2021_winter\Letov 201-351\Letov 201-351\header.h>
 
 vector<bool> read_from_file(std::string file_name)
 {
@@ -164,9 +164,9 @@ int func_substr_len(std::string input_str)
 
 int roman_to_arab(std::string roman_number)
 {
-	int arab_num = 0;
+	int arab_num = 0; // переменна€ дл€ подсчета
 
-	map<char, int> RA;
+	map<char, int> RA; // map дл€ перевода символов римских чисел в арабские числа
 	RA['I'] = 1;
 	RA['V'] = 5;
 	RA['X'] = 10;
@@ -175,32 +175,49 @@ int roman_to_arab(std::string roman_number)
 	RA['D'] = 500;
 	RA['M'] = 1000;
 
-	vector<int> arab_number;
+	vector<int> arab_number; // вектор куда, запишутс€ переведнные из римских арабские числа
+
 	int counter = 1;
+
+	for (int i = 0; i < roman_number.size(); i++)
+		arab_number.push_back(RA[roman_number[i]]);
+
+	bool flag_no_end = true; // флаг, который определ€ет, наход€тс€ ли м≈ньшие числа в конце вектора
 
 	for (int i = 0; i < arab_number.size() - 1 ; i++)
 	{
-		if (arab_number[i] < arab_number[i + 1])
-			arab_number[i] *= -1;
+		if (arab_number[i] < arab_number[i + 1]) // проверка, что левые числа, меньше правых
+			arab_number[i] *= -1; // отрицание значени€ 
 		else if (arab_number[i] == arab_number[i + 1])
 		{
 			int counter = 1;
 
-			while (arab_number[i] == arab_number[i + 1])
+			while (arab_number[i] == arab_number[i + 1]) // цикл дл€ подсчета подр€д идущих одинаковых цифр
+			{
 				counter++;
-
+				if (i < arab_number.size() - 2)
+					i++;
+				else
+				{
+					flag_no_end = false;
+					break;
+				}
+			}
+			if (flag_no_end) // если подр€д идущие цифры не в конце вектора (числа)
+				for (int j = 0; j < counter; j++) // тогда отрицаем все подр€д идушие одинаковые цифры
+					arab_number[arab_number.size() - 2 - j] *= -1;
 		}
 	}
-	for (int i = 0; i < roman_number.size(); i++)
-		arab_number.push_back(RA[roman_number[i]]);
-	for (int i = 0; i < arab_number.size(); i++)
-		cout << arab_number[i] << ' ';
+	
+	for (int i = 0; i < arab_number.size(); i++) // цикл сложени€
+		arab_num += arab_number[i];
 	return arab_num;
 }
 
 int main()
 {
-	string tmp = "MCMXCIV"; //qwertyqqqewerwqerqwertyusadf
+	string tmp;
+	cin >> tmp;
 	cout << roman_to_arab(tmp);
 	
 	/*vector<int> temp;
