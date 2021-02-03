@@ -310,6 +310,7 @@ long long int fact(int cucumber)
 void pas()
 {
     int number;
+    cin >> number;
     long long int out_of_space;
     for(int i=0;i<number;++i)
     {
