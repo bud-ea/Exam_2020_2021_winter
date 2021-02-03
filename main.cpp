@@ -7,7 +7,7 @@ string nameout = "base.txt";
 ifstream input;
 ofstream out;
 
-string in()
+bool in()
 {
     string line;
     //cin >> line;
@@ -17,7 +17,7 @@ string in()
     getline(cin,line);
     out << line;
     out.close();
-    return "true";
+    return true;
 }
 
 void kol()
@@ -59,7 +59,7 @@ int main()
     {
         case 1:
             {
-            cout << "Введите путь до файла (файл по умолчанию base.txt)\n";
+            cout << "Введите путь до файла (файл по умолчанию base.txt)\n>";
             cin >> nameout;
             cout  << in() << "\n";
         break;}
@@ -68,7 +68,7 @@ int main()
         break;
         case 3:
             {
-            cout << "Введите путь до файла (файл по умолчанию base.txt)\n";
+            cout << "Введите путь до файла (файл по умолчанию base.txt)\n>";
             cin >> nameout;
             outer(nameout);
         break;}
