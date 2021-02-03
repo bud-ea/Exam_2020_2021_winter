@@ -68,5 +68,22 @@ std::string table(std::vector<bool> f)
 		table += "x" + std::to_string(i) + "\t";
 	}
 
+	table += "f\n";
+
+	for (int i = 0; i < f.size(); i++)
+	{
+		for (int j = 0; j <= argNum; j++)
+		{
+			if (j == argNum)
+				table += std::to_string(f.at(i));
+			else 
+			{
+				
+				table += std::to_string((bool)(i & (int) (pow(2, (argNum - j - 1))))) + "\t";
+			}
+		}
+		table += "\n";
+	}
+
 	return table;
 }

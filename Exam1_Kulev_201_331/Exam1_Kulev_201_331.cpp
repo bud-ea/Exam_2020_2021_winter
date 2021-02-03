@@ -3,9 +3,8 @@
 
 int main()
 {
-
-    std::vector<bool> vec = {false, false, true, false};
-    printf_s("num_of_args: %d\n", num_of_args(vec));
+    std::vector<bool> vec = {false, true, true, false, false, true, false, false};
+    //printf_s("num_of_args: %d\n", num_of_args(vec));
 
     /*std::string filePathIn("D:\\vec.txt");
     printf_s("Reading vector from: %s\n", filePathIn.c_str());
@@ -21,8 +20,8 @@ int main()
     bool result = write_to_file(filePathOut, vec);
     printf_s("Write result: %d (%s)\n", result, result ? "success" : "error");*/
 
-    /*std::string fTable = table(vec);
-    printf_s("Table:\n%s\n", fTable.c_str());*/
+    std::string fTable = table(vec);
+    printf_s("Table:\n%s\n", fTable.c_str());
 
 
     return 0;
