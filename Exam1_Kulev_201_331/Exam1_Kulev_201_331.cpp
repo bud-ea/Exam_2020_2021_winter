@@ -10,7 +10,6 @@ int main()
     //runHalf1();
     runHalf2();
 
-
     return 0;
 }
 
