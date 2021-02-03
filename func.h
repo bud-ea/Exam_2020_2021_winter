@@ -1,103 +1,109 @@
-#include <iostream> // cout cin
-#include <vector> // для работы с векторами
-#include <math.h> // для математических операций
-#include <fstream> // для чтения/записи данных из/в файл
-#include <string> // для работы с Си-строками
+#include <iostream>
+#include <vector> // РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РІРµРєС‚РѕСЂР°РјРё
+#include <math.h> // РґР»СЏ РјР°С‚РµРјР°С‚РёС‡РµСЃРєРёС… РѕРїРµСЂР°С†РёР№
+#include <fstream> //
+#include <string> // РґР»СЏ СЂР°Р±РѕС‚С‹ СЃРѕ СЃС‚СЂРѕРєР°РјРё
 
 using namespace std;
 
+
 int num_of_args(vector<bool> f) {
-    int n = log2(f.size());
-    return n;
+  int n = log2(f.size());
+  return n;
 }
 
-vector<bool> read_from_file(string file_name) { // чтение значений из файла
-    vector<bool> vec; // вектор который возвращаем
-    string str;
-    ifstream out(file_name);
-    if (!out.is_open()) {
-        cout << "Ошибка открытия файла!\n";
-    } else {
-        while (!out.eof()) { // цикл считывания значений
-            str = "";
-            out >> str;
-            if (str == "") continue;
-            vec.push_back(stoi(str)); // передача значений в вектор
-        }
+vector<bool> read_from_file(string file_name) { // С‡С‚РµРЅРёРµ Р·РЅР°С‡РµРЅРёР№ РёР· С„Р°Р№Р»Р°
+  vector<bool> return_vector; // РІРµРєС‚РѕСЂ РєРѕС‚РѕСЂС‹Р№ РІРѕР·РІСЂР°С‰Р°РµРј
+  string basic_string;
+  ifstream out(file_name);
+  if (!out.is_open()) {
+    cout << "РћС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°!\n";
+  } else {
+    while (!out.eof()) { // С†РёРєР» СЃС‡РёС‚С‹РІР°РЅРёСЏ Р·РЅР°С‡РµРЅРёР№
+      basic_string = "";
+      out >> basic_string;
+      if (basic_string == "") continue;
+      return_vector.push_back(stoi(basic_string)); // РїРµСЂРµРґР°С‡Р° Р·РЅР°С‡РµРЅРёР№ РІ РІРµРєС‚РѕСЂ
     }
-    out.close(); // закрываем файл
-    return vec;
+  }
+  out.close();     // Р·Р°РєСЂС‹РІР°РµРј С„Р°Р№Р»
+  return return_vector;
 }
 
-bool write_to_file(std::string file_name, vector<bool> f) {
-    ofstream in;
-    bool v;
-    in.open(file_name, ios::app);
-    int i;
-    for (i = 0; i < f.size() - 1; i++) {
-        in << f[i] << " ";
-    }
-    in << f[i];
-    in.close();
-    vector<bool> vec;
-    vec = read_from_file(file_name);
-    if (vec == f) {
-        v = true;
-    }
+bool write_to_file(std::string file_name, vector<bool> f) { // Р·Р°РїРёСЃСЊ РІ С„Р°Р№Р»
+  ofstream in;
+  bool record_result; // РІРѕР·РІСЂР°С‰Р°РµРјР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ
+  in.open(file_name, ios::app);
+  int i;
+  for (i = 0; i < f.size() - 1; i++) {
+    in << f[i] << " ";
+  }
+  in << f[i];
+  in.close();
+  vector<bool> vector; // РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ РІРµРєС‚РѕСЂ РґР»СЏ РїСЂРѕРІРµСЂРєРё СЃРѕРІРїР°РґРµРЅРёСЏ СЂРµР·СѓР»СЊС‚Р°С‚Р° Р·Р°РїРёСЃРё Рё РёСЃС…РѕРґРЅРѕРіРѕ
+  vector = read_from_file(file_name);
+  if (vector == f) {
+    record_result = true;
+  }
 
-    return v;
+  return record_result;
 }
 
 string table(vector<bool> f) {
-    string table;
-    int num = num_of_args(f);
+  string table;
+  int num = num_of_args(f);
 
-    for (int i = 1; i <= num; i++) {
-        table += "x" + to_string(i) + "\t"; // Вывод шапки
-    }
-    table += "f\n";
+  for (int i = 1; i <= num; i++) {
+    table += "x" + to_string(i) + "\t"; // РІС‹РІРѕРґ С€Р°РїРєРё
+  }
+  table += "f\n";
 
-    for (int i = 0; i < f.size(); i++) {
-        for (int j = 0; j <= num; j++) {
-            if (j == num)
-                table += to_string(f.at(i));
-            else
-                table += to_string((bool) (i & (int) (pow(2, (num - j - 1))))) + "\t";
-        }
-        table += "\n";
+  for (int i = 0; i < f.size(); i++) {
+    for (int j = 0; j <= num; j++) {
+      if (j == num)
+        table += to_string(f.at(i));
+      else
+        table += to_string((bool) (i & (int) (pow(2, (num - j - 1))))) + "\t";
     }
-    return table;
+    table += "\n";
+  }
+  return table;
 }
 
-std::string func_sdnf(std::vector<bool> f) {
-    string func("f_sdnf(");
-    int num = num_of_args(f); // получаем количество аргументов
-    bool has_s_func = false; // используется для обработки, если функция имеет SDNF
+string func_sdnf(std::vector<bool> f) {
+  string func("f_sdnf(");
+  int num = num_of_args(f); // РїРѕР»СѓС‡Р°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ Р°СЂРіСѓРјРµРЅС‚РѕРІ
+  bool has_s_func = false; // РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё, РµСЃР»Рё С„СѓРЅРєС†РёСЏ РёРјРµРµС‚ SDNF
 
-    for (int i = 1; i <= num; i++) {
-        func += "x" + std::to_string(i);
-        if (i != num)
-            func += ", ";
+  for (int i = 1; i <= num; i++) {
+    func += "x" + std::to_string(i);
+    if (i != num)
+      func += ", ";
+  }
+  func += ") = ";
+
+  for (int i = 0; i < f.size(); i++) {// РїРµСЂРµР±РёСЂР°РµРј РІСЃРµ Р·РЅР°С‡РµРЅРёСЏ С„СѓРЅРєС†РёРё
+    // SDNF СЃС‚СЂРѕРёС‚СЃСЏ С‚РѕР»СЊРєРѕ РґР»СЏ РёСЃС‚РёРЅРЅС‹С… Р·РЅР°С‡РµРЅРёР№ С„СѓРЅРєС†РёРё!
+    if (f.at(i)) { // СЃРѕРѕР±С‰Р°РµРј, С‡С‚Рѕ С„СѓРЅРєС†РёСЏ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ РёРјРµРµС‚ sdnf
+      has_s_func = true;
+      func += "(";
+      for (int j = 0; j < num; j++) { // РїСЂРѕР№С‚Рё РїРѕ С‚Р°Р±Р»РёС†Рµ РёСЃС‚РёРЅРЅРѕСЃС‚Рё
+        // С‚РѕС‚ Р¶Рµ РјРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ Р·РЅР°С‡РµРЅРёСЏ РґР»СЏ Р°СЂРіСѓРјРµРЅС‚Р°, РєРѕС‚РѕСЂС‹Р№ РёСЃРїРѕР»СЊР·РѕРІР°Р»СЃСЏ РІС‹С€Рµ
+        bool arguments = (bool) (i & (int) (pow(2, (num - j - 1))));
+        // РѕР±СЂР°Р±Р°С‚С‹РІР°РµРј, РµСЃР»Рё Р·РЅР°С‡РµРЅРёРµ Р°СЂРіСѓРјРµРЅС‚Р° Р»РѕР¶РЅРѕ
+        if (!arguments)
+          func += "'";
+
+        func += "x" + std::to_string(j + 1); //РІС‹РІРѕРґРёРј СЌР»РµРјРµРЅС‚ С„РѕСЂРјСѓР»С‹
+        if (j != num - 1)
+          func += " & ";
+      }
+      func += ") v ";
     }
-    func += ") = ";
+  }
 
-    for (int i = 0; i < f.size(); i++) {// перебираем все значения функции
-        // SDNF строится только для истинных значений функции!
-        if (f.at(i)) { // сообщаем, что функция действительно имеет sdnf
-            has_s_func = true;
-            func += "(";
-            for (int j = 0; j < num; j++) { // пройти по таблице истинности
-                // тот же метод получения значения для аргумента, который использовался выше
-                bool arguments = (bool) (i & (int) (pow(2, (num - j - 1))));
-                // обрабатываем, если значение аргумента ложно
-                if (!arguments)
-                    func += "'";
+  // РѕР±СЂРµР·Р°С‚СЊ 3 СЃРёРјРІРѕР»Р° СЃ РєРѕРЅС†Р° СЃС‚СЂРѕРєРё РґР»СЏ РєСЂР°СЃРѕС‚С‹
+  func.replace(func.length() - 3, 3, "");
 
-                func += "x" + std::to_string(j + 1); //выводим элемент формулы
-                if (j != num - 1)
-                    func += " & ";
-            }
-            func += ") v ";
-        }
-    }
+  return func;
 }
