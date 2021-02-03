@@ -4,7 +4,8 @@
 #include <string>		//для работы со строками
 #include <fstream>		//для работы с файлами
 #include <cmath>		//std::log
-#include <algorithm>	//std::reverse
+#include <algorithm>	//std::reverse, for_each
+#include <map>			//std::map
 
 
 int num_of_args(std::vector<bool> f);
@@ -20,3 +21,9 @@ std::string func_sdnf(std::vector<bool> f);
 std::string func_sknf(std::vector<bool> f);
 
 std::string func_Zhegalkin(std::vector<bool> f);
+
+std::vector<int> func_Pascal(int k);
+
+std::string roman_to_arab(std::string roman_number);
+
+int func_substr_len(std::string input_str);
