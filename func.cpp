@@ -5,8 +5,8 @@
 
 using namespace std;
 
-const string file = {"F:\\file.txt"}; // расположение файла1
-const string file2 = {"F:\\file2.txt"}; // расположение файла2
+const string file = {"D:\\file.txt"}; // расположение файла1
+const string file2 = {"D:\\file2.txt"}; // расположение файла2
 
 vector<bool> f; // вектор по умолчанию
 
@@ -17,7 +17,7 @@ int main() {
   int a = num_of_args(f);
   cout << "1 Задание: " << a << endl;
   cout << "2 Задание: ";
-  for (int i = 0; i < f.size(); i++){
+  for(int i = 0; i < f.size(); i++){
     cout << f[i];
   }
   cout << endl;
@@ -28,7 +28,7 @@ int main() {
     cout << "False";
   }
   cout << endl;
-  cout << "4 задание: ";
+  cout << "4 задание: " << endl;
   string string1 = table(f);
   cout << string1;
   cout << endl;

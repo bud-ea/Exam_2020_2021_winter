@@ -102,8 +102,5 @@ string func_sdnf(std::vector<bool> f) {
     }
   }
 
-  // обрезать 3 символа с конца строки для красоты
-  func.replace(func.length() - 3, 3, "");
-
   return func;
 }
