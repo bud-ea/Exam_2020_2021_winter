@@ -1,6 +1,5 @@
 #include "Func.h"
-#include <string>
-#include <bitset>
+#include <bitset>//для составления таблицы
 
 
 int num_of_args(std::vector<bool> f)

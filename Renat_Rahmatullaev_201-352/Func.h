@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
-#include <vector>
-#include <math.h>
-#include <fstream>
+#include <vector>// для решения задач
+#include <math.h>// для нахождения логорифма
+#include <fstream>// для доступа к файлам
 
 using namespace std;
 
