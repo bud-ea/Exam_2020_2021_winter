@@ -1,10 +1,10 @@
 #pragma once
 #include <iostream>
-#include <vector>
-#include <string>
-#include <fstream>
-#include <bitset>
-
+#include <vector>//подключаем векторы для работы с ними
+#include <string>//подключаем строки для работы с ними
+#include <fstream>//подключаем библиотеку файлового ввода и вывода
+#include <bitset>//подключал для работы с переводом в двоичное представление чисел, пока нигде не испольлзуется, но мб в будущем
+//юзинги для простоты написания
 using std::vector;
 using std::cin;
 using std::cout;

@@ -67,7 +67,7 @@ string table(vector<bool> f)
 			k++;
 		} while (j != 0 || k < args);
 		reverse(buf.begin(), buf.end());//разворачиваем строку чтобы остатки шли в обратном порядке
-		table.append(buf + ' ' + std::to_string(f[i]) + '\n');
+		table.append(buf + ' ' + std::to_string(f[i]) + '\n'); //дописываем значение функции в конец строки
 		buf.clear();
 	}
 		
