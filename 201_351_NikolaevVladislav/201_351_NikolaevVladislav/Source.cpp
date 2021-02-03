@@ -154,4 +154,158 @@ string table(vector<bool> f)
 	*/
 	
 }
+unsigned long long bincoef(int n, int k)
+{
 
+	if (k > n / 2) {
+		k = n - k;// тк в выводе получается симметрия то функция в точке (n,k) = функции в точке (n, n-k)
+//пример: n=10 k=4 и n=10 k=6 функция имеет вид 10!/(4!*6!) от перестановки мест множителей в знаменателе результат не поменяется->экономится память    
+	}
+	if (k == 1) {
+		return n; // при сокращении дроби в числителе остается один множитель равный n, а в знаменателе 1! -> return n
+	}
+	if (k == 0) {
+		return 1; // при к=0 функция примет вид 1/0! = 1
+	}
+	unsigned long long r = 1;
+	for (int i = 1; i <= k; i++) {
+		r = r * (n - k + i);
+		r = r / double(i);
+		//идет подсчет числителя и одновременное деление на соответствующий множитель знаменателя
+	}
+	return r;
+}
+std::vector<int> func_Pascal(int n)
+{
+	vector<int> result;
+	
+	int k;
+	
+	cout << endl;
+	for (int i = 0; i <= n; i++) {
+		k = i;
+		 result.push_back(bincoef(n, k));
+	}
+	return result;
+}
+//MCMXCIV
+//известно что число введено верно т.е. по правилам и большими буквами
+//известно что символы в римских числах расположены по возрастанию
+//единственные исключения с 4, 9, 40, 90, 400, 900
+//на обычных ветвлениях происходит последовательная проверка строки
+//после возвращается значение в арабских цифрах
+int roman_to_arab(std::string roman_number)
+{
+	int arab = 0;
+	
+	int i = 0;//проверка чисел расположена в порядке от большего к меньшему римскому числу
+	while (i < roman_number.length()) {
+		if (roman_number[i] == 'M') {
+			arab += 1000;
+			i++;
+			continue;
+		}
+		if (roman_number[i] == 'C' && roman_number[i + 1] == 'M') {
+			arab += 900;
+			i += 2;
+			continue;
+		}
+		if (roman_number[i] == 'D') {
+			arab += 500;
+			i++;
+			continue;
+		}
+		if (roman_number[i] == 'C' && roman_number[i + 1] == 'D') {
+			arab += 400;
+			i += 2;
+			continue;
+		}
+		if (roman_number[i] == 'C') {
+			arab += 100;
+			i++;
+			continue;
+		}
+		if (roman_number[i] == 'X' && roman_number[i + 1] == 'C') {
+			arab += 90;
+			i += 2;
+			continue;
+		}
+		if (roman_number[i] == 'L') {
+			arab += 50;
+			i++;
+			continue;
+		}
+		if (roman_number[i] == 'X' && roman_number[i + 1] == 'L') {
+			arab += 40;
+			i += 2;
+			continue;
+		}
+		if (roman_number[i] == 'X') {
+			arab += 10;
+			i++;
+			continue;
+		}
+		if (roman_number[i] == 'I' && roman_number[i + 1] == 'X') {
+			arab += 9;
+			i += 2;
+			continue;
+		}
+		if (roman_number[i] == 'V') {
+			arab += 5;
+			i++;
+			continue;
+		}
+		if (roman_number[i] == 'I' && roman_number[i + 1] == 'V') {
+			arab += 4;
+			i += 2;
+			continue;
+		}
+		if (roman_number[i] == 'I') {
+			arab += 1;
+			i++;
+			continue;
+		}
+
+	}
+	return arab;
+}
+//замена состояний всех букв на фолз
+void update_status(bool* mas)
+{
+	for (int j = 0; j < 26; j++)
+		mas[j] = false;
+}
+
+
+
+int func_substr_len(std::string input_str)
+{
+	bool letters_status[26] = { false };
+	// булевый массив для 26 букв английского алфавита
+	//который отражает состояние (фолз - не встречалась, тру - встречалась) каждой буквы на момент поиска длинны данной подстроки 
+	int max_len = 0;//максимальная длина
+	int k = 0;
+	//k - это временный счетчик максимального значения
+
+
+	for (int i = 0; i < input_str.size(); i++)
+	{
+		//когда буква встречается первый раз значение счетчика +1, статус буквы меняется на тру
+		if (letters_status[input_str[i] - 97] == false)
+		{
+			k++;
+			letters_status[input_str[i] - 97] = true;
+		}
+		else {//когда встречается второй раз все статусы обновляются в функции update_status
+			k = 1;
+			update_status(letters_status);
+			letters_status[input_str[i] - 97] = true;
+		}
+		if (k > max_len) {
+			max_len = k;
+		}
+			
+	}
+
+	return max_len;
+}
