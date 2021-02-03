@@ -4,12 +4,9 @@
 #include <cmath>
 #include "table.h"
 using namespace std;
-
-int main()
+void True_to_Cesar()
 {
-    for(;;)
-    {
-        string Cesar;
+     string Cesar;
         cin >> Cesar;
         int dec_num=0,c=1;
         char cur_symb='0';
@@ -301,6 +298,31 @@ int main()
 
         }
         cout << dec_num;
-    }
+
+}
+void pas()
+{
+
+
+}
+int main()
+{
+
+       short switcher;;
+       setloacle(0," ");
+       cout << "Введите 1 для треугольника Паскаля\nВведите 2 для римских цифр\n";
+       for(;;cout << ">")
+       {
+            cin >> swithcer;
+            switch(switcher)
+            {
+                case 1:
+                    pas();
+                    break;
+                case 2:
+                    True_to_Cesar();
+                    break;
+            }
+       }
     return 0;
 }
