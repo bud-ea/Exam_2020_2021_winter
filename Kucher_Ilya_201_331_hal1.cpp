@@ -36,25 +36,32 @@ std::string table(std::vector <bool> f)
 
 std::vector<bool> read_from_file(std::string file_name)
 {
-	std::ifstream inf(file_name);
-	std::vector <bool> f;
-	while (inf)
+	std::ifstream file;
+	std::vector <bool> output;
+	std::string str;
+	file.open(file_name);
+	getline(file, str, '\0');
+	file.close();
+	for (auto ch : str) 
 	{
-		bool i;
-		inf >> i;
-		f.push_back(i);
+		output.push_back(ch);
 	}
-	inf.close();
-	return f;
+	return output;
 }
 
 bool write_to_file(std::string file_name, std::vector <bool> f)
 {
-	std::ofstream outf(file_name);
-	int i = 0;
-	for (int i = 0; i < f.size(); i++)
-		outf << f[i] << ' ';
-	outf.close();
+	std::ofstream file;
+	file.open(file_name);
+	if (!file)
+	{
+		return false;
+	}
+	for (auto data : f) 
+	{
+		file << data << ' ';
+	}
+	file.close();
 	return true;
 }
 
