@@ -1,8 +1,6 @@
-#pragma once
-#include <iostream>
-//#include <vector>
-//#include <string>
-#include <fstream> //‡·ÓÚ‡ Ò Ù‡ÈÎ‡ÏË
+Ôªø#pragma once
+#include <fstream> //—Ä–∞–±–æ—Ç–∞ —Å —Ñ–∞–π–ª–∞–º–∏
+#include <set>
 int num_of_arguments(std::vector <bool> f) {
 	int len = f.size();
 	int answ;
@@ -36,7 +34,7 @@ bool write_to_file(std::string file_name, std::vector <bool> f) {
 	file.close();
 	return true;
 }
-std::string table(std::vector <bool> f) {
+/*std::string table(std::vector <bool> f) {
 	std::string answ_task_4 = "x1\tx2\tx3\tx4\tF\n";
 	std::string x1 = "0000000011111111";
 	std::string x2 = "0000111100001111";
@@ -44,7 +42,12 @@ std::string table(std::vector <bool> f) {
 	std::string x4 = "0101010101010101";
 	std::string F;
 	for (auto num : f) {
-		F += char(num);
+		if (num) {
+			num = 1;
+		}
+		else {
+			num = 0;
+		}
 	}
 	for (int i = 0; i < 16; i++) {
 		answ_task_4 += char(x1[i]);
@@ -59,7 +62,7 @@ std::string table(std::vector <bool> f) {
 		answ_task_4 += '\n';
 	}
 	return answ_task_4;
-}
+} */
 std::string func_sdnf(std::vector <bool> f) {
 	std::string answ;
 	int x1[16] = { 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1 };
@@ -149,4 +152,102 @@ std::string func_sknf(std::vector <bool> f) {
 		}
 	}
 	return answ;
+}
+int roman_to_arab(std::string roman_number)
+{
+	int result = 0;
+	for (int i = 0; i < roman_number.length(); i++)
+	{
+		if (roman_number[i] == 'M')
+			result += 1000;
+		if (roman_number[i] == 'C' && roman_number[i + 1] == 'M')
+		{
+			result += 900;
+			i++;
+		}
+		if (roman_number[i] == '‚ÄéD')
+			result += 500;
+		if (roman_number[i] == 'C' && roman_number[i + 1] == 'D')
+		{
+			result += 400;
+			i++;
+		}
+		if (roman_number[i] == 'C')
+			result += 100;
+		if (roman_number[i] == 'X' && roman_number[i + 1] == 'C')
+		{
+			result += 90;
+			i++;
+		}
+		if (roman_number[i] == 'L')
+			result += 50;
+		if (roman_number[i] == 'X' && roman_number[i + 1] == 'L')
+		{
+			result += 40;
+			i++;
+		}
+		if (roman_number[i] == 'X')
+			result += 10;
+		if (roman_number[i] == 'I' && roman_number[i + 1] == 'X')
+		{
+			result += 9;
+			i++;
+		}
+		if (roman_number[i] == 'V')
+			result += 5;
+		if (roman_number[i] == 'I' && roman_number[i + 1] == 'V')
+		{
+			result += 4;
+			i++;
+		}
+		if (roman_number[i] == 'I')
+			result += 1;
+	}
+	return result;
+}
+int C(int m, int n) {
+	int fact_n = 1;
+	int fact_m = 1;
+	int fact_n_m = 1;
+	for (int i = 1; i <= n; i++) {
+		fact_n *= i;
+	}
+	for (int i = 1; i <= m; i++) {
+		fact_m *= i;
+	}
+	for (int i = 1; i <= (n - m); i++) {
+		fact_n_m *= i;
+	}
+	return fact_n / (fact_m * fact_n_m);
+}
+std::vector <int> func_Pascal(int k) {
+	std::vector <int> result;
+	for (int i = 0; i < k + 1; i++) {
+		result.push_back(C(i, k));
+	}
+	return result;
+}
+int func_substr_len(std::string input_str) {
+	std::set <int> unique_list;
+	int counter;
+	int max = 0;
+	for (int i = 0; i < input_str.length(); i++) {
+		counter = 0;
+		int j = i;
+		unique_list.clear();
+		while (true) {
+			if (j < input_str.length() and unique_list.find(input_str[j]) == unique_list.end()) {
+				unique_list.insert(input_str[j]);
+				counter++;
+				j++;
+			}
+			else {
+				if (counter > max) {
+					max = counter;
+				}
+				break;
+			}
+		}
+	}
+	return max;
 }
