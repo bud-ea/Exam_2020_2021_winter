@@ -68,18 +68,6 @@ std::string table(std::vector<bool> f)		//функция вывлда таблицы истинности
 
 std::string func_sdnf(std::vector<bool> f);
 
-std::string func_sknf(std::vector<bool> f)
-{
-	/*int args = num_of_args(f);
-	std::string result;
-	for (int i = 0; i < f.size(); i++)
-	{
-		if (f[i] == 0)
-		{
-			result = format
-		}
-	}*/
-
-}
+std::string func_sknf(std::vector<bool> f);
 
 std::string func_Zhegalkin(std::vector<bool> f);
