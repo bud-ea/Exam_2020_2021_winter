@@ -7,6 +7,7 @@ using namespace std;
 void True_to_Cesar()
 {
      string Cesar;
+        cout << ">";
         cin >> Cesar;
         int dec_num=0,c=1;
         char cur_symb='0';
@@ -235,20 +236,14 @@ void True_to_Cesar()
                         dec_num+=50;
                         break;
                     case 'C':
-                    {
-                        cout << c*100;
                         dec_num+=100*c;
                         break;
-                    }
                     case 'D':
                         dec_num+=500;
                         break;
                     case 'M':
-                    {
-                        cout << c*1000 << " ";
                         dec_num+=1000*c;
                         break;
-                    }
                     default:
                         break;
 
@@ -275,20 +270,14 @@ void True_to_Cesar()
                         dec_num+=50;
                         break;
                     case 'C':
-                    {
-                        cout << c*100;
                         dec_num+=100*c;
                         break;
-                    }
                     case 'D':
                         dec_num+=500;
                         break;
                     case 'M':
-                    {
-                        cout << c*1000 << 1000 << " ";
                         dec_num+=1000*c;
                         break;
-                    }
                     default:
                         break;
 
@@ -297,12 +286,12 @@ void True_to_Cesar()
             }
 
         }
-        cout << dec_num;
+        cout << dec_num << "\n";
 
 }
 long long int fact(int cucumber)
 {
-    if(cucumber>1)
+    if(cucumber > 1)
     return cucumber*fact(cucumber-1);
     else
     return 1;
@@ -310,13 +299,14 @@ long long int fact(int cucumber)
 void pas()
 {
     int number;
+    cout << ">";
     cin >> number;
     long long int out_of_space;
-    for(int i=0;i<number;++i)
+    for(int i=0;i<=number;++i)
     {
             cout/*out_of_space*/<< fact(number)/(fact(i)*fact(number-i)) << " ";
     }
-
+    cout << "\n";
 }
 int main()
 {
@@ -324,8 +314,9 @@ int main()
        short switcher;
        setlocale(0," ");
        cout << "Введите 1 для треугольника Паскаля\nВведите 2 для римских цифр\n";
-       for(;;cout << ">")
+       for(;;)
        {
+            cout << ">";
             cin >> switcher;
             switch(switcher)
             {
