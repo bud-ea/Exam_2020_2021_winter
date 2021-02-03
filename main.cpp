@@ -20,7 +20,7 @@ bool in()
     return true;
 }
 
-int kol()
+int kol(bool check)
 {
     vector <bool> F;
     bool a;
@@ -31,6 +31,7 @@ int kol()
         input >> a;
         F.push_back(a);
     }
+    if(check)
     cout << ">" << log2(F.size()) << "\n";
     input.close();
     return log2(F.size());
@@ -45,11 +46,12 @@ void outer(string user)
 }
 void table()
 {
-    for(int i=0;i<kol();++i)
+    cout << "\n";
+    for(int i=0;i<kol(0);++i)
     {
         cout << "x" << i+1 << " ";
     }
-    cout << "f/n";
+    cout << "f\n";
     vector <bool> F;
     bool a;
     input.open(nameout);
@@ -62,10 +64,12 @@ void table()
     for(int i=0;i<F.size();++i)
     {
         int j=F.size()-i;
-        while(j>0)
+        while(j>=0)
         {
-            cout << j%10 << " ";
+            cout << j%2 << "  ";
             j/=2;
+            if(j==0)
+            break;
         }
         cout << F[i] << "\n";
     }
@@ -88,7 +92,7 @@ int main()
             cout  << in() << "\n";
         break;}
         case 2:
-            kol();
+            kol(true);
         break;
         case 3:
             {
@@ -97,6 +101,7 @@ int main()
             outer(nameout);
         break;}
         case 4:
+        table();
         break;
         case 5:
         break;
