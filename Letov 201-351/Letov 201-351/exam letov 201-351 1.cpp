@@ -216,14 +216,16 @@ int roman_to_arab(std::string roman_number)
 
 int main()
 {
-	string tmp;
+	/*string tmp;
 	cin >> tmp;
-	cout << roman_to_arab(tmp);
+	cout << roman_to_arab(tmp);*/
 	
-	/*vector<int> temp;
-	temp = func_Pascal(0);
+	vector<int> temp;
+	temp = func_Pascal(33);
 	for (int i = 0; i < temp.size(); i++)
-		cout << temp[i];*/
+		cout << temp[i];
+
+
 
 	//vector<bool> temp = { 0, 0, 0, 1, 0, 0, 0, 1 };
 	//cout << func_Zhegalkin(temp);

@@ -1,13 +1,12 @@
 #pragma once
-#include <vector>
-#include <string>
-#include <iostream>
-#include <fstream>
-#include <bitset>
-#include <map>
+#include <vector> // вместо массива, для хранения значений
+#include <string>	// строки, используется почти во всех заданиях
+#include <iostream> // потоки, ввод-ввыод в-из консоль(и)
+#include <fstream> // работа с файлами
+#include <map> // чтобы перевести римсие в арабские
 
-using std::map;
-using std::reverse;
+using std::map; 
+using std::reverse; 
 using std::vector;
 using std::string;
 using std::cin;
