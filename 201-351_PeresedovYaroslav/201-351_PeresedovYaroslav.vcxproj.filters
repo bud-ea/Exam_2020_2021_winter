@@ -21,7 +21,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="201-351_PeresedovYaroslav.h">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
