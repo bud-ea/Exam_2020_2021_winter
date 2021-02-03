@@ -20,10 +20,10 @@ int num_of_args(vector<bool> f) {
 vector<bool> read_from_file(std::string file)
 {
 	vector <bool> f;
-	fstream fs;								//создание объекта при работе в С++
+	fstream fs;//создание объекта при работе в С++
 	string str;
 	fs.open(file, std::fstream::in);  //открытие файла, на чтение 
-	getline(fs, str);					   // считывание строки с вектором
+	getline(fs, str);// считывание строки с вектором
 	for (int i = 0; i < str.length(); i += 2) {
 		f.push_back((bool)str[i]);
 	}
@@ -31,16 +31,13 @@ vector<bool> read_from_file(std::string file)
 	return f;
 }
 
-/*Записать заданный вектор значений f булевой функции в файл, заданноый расположением и имененем файла file_name. Вернуть true при успешной записи.*/
-bool write_to_file(std::string file_name, vector<bool> f) {
+/*Записать заданный вектор значений f булевой функции в файл, заданной расположением и имененем файла file_name. Вернуть true при успешной записи.*/
+bool write_to_file(string file_name, vector<bool> f) {
 	fstream fs;								//создание объекта при работе в С++
-	fs.open(file_name, std::fstream::out);  //открытие файла, режим: на запись
+	fs.open(file_name, fstream::out);  //открытие файла, режим: на запись
 	if (fs.fail()) return false;
-
 	for (int i = 0; i < f.size(); i++) fs << f[i] << " ";
-
 	fs.close();
-
 	return true;
 }
 /*Во входной строке записано римское число, не превышающее трех тысяч. Необходимо вернуть записать его в арабской.*/
@@ -123,10 +120,7 @@ int func(string input_string) {
     }
     return max;
 }
-/*На вход подается неотрицательное число k от 0 до 33 включительно.
-В треугольнике Паскаля каждое число есть сумма 2 чисел над ним:
-*/
-int C(int m, int n)
+int bio_k(int m, int n)
 {
     int fact_n = 1;
     int fact_m = 1;
@@ -145,16 +139,16 @@ int C(int m, int n)
     }
     return fact_n / (fact_m * fact_n_m);
 }
-std::vector <int> func_Pascal(int k)
+vector <int> func_Pascal(int k)
 {
-    std::vector <int> result;
+    vector <int> result;
     for (int i = 0; i < k + 1; i++)
     {
-        result.push_back(C(i, k));
+        result.push_back(bio_k(i, k));
     }
     for (int i = 0; i < result.size(); i++)
     {
-        std::cout << result[i];
+        cout << result[i]<<" ";
     }
     return result;
 }
