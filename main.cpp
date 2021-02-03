@@ -309,7 +309,7 @@ int main()
 {
 
        short switcher;;
-       setloacle(0," ");
+       setlocale(0," ");
        cout << "Введите 1 для треугольника Паскаля\nВведите 2 для римских цифр\n";
        for(;;cout << ">")
        {
