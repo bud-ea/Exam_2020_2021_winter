@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <bitset>
 
 using std::vector;
 using std::cin;
@@ -14,6 +15,6 @@ using std::ifstream;
 using std::ofstream;
 
 int num_of_args(std::vector<bool> f);
-vector<bool> read_from_file(std::string file_name);
+std::vector<bool> read_from_file(std::string file_name);
 bool write_to_file(std::string file_name, std::vector<bool> f);
-string table(std::vector<bool> f);
+std::string table(std::vector<bool> f);

@@ -9,6 +9,6 @@ int main() {
 	}
 	cout << endl;
 	cout << num_of_args(f);
-
+	cout << endl << table(f);
 	return 0;
 }
