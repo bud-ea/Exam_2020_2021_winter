@@ -27,7 +27,7 @@ bool write_to_file(std::string file_name, vector<bool> f)
 	if (orig.is_open())
 	{
 		string buf;
-		for (int i = 0; i < num_of_args(f); i++)
+		for (int i = 0; i < f.size(); i++)
 			if (f[i])
 				buf.push_back('1');
 			else if (!f[i])
@@ -41,11 +41,26 @@ bool write_to_file(std::string file_name, vector<bool> f)
 
 int num_of_args(vector<bool> f)
 {
-	return f.size();
+	int pow = 0;
+	int size = f.size();
+	do
+	{
+		size /= 2;
+		pow++;
+	} while (size / 2 != 0);
+	return pow;
 }
 
 string table(vector<bool> f)
 {
+	int power = num_of_args(f);
+	string rtrn;
+	int counter = 0;
+	for (int i = 0; i < f.size(); i++)
+	{
+		string num = std::bitset<16>(counter)
+		
+	}
 
 }
 

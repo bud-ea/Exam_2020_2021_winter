@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <bitset>
 
 using std::vector;
 using std::string;
