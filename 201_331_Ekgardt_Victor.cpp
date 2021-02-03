@@ -6,6 +6,7 @@
 
 int main() {
 	cout <<"Converter "<< roman_to_arab("MCMLXVII") << endl;
+	cout << "Paskal, k = 4, " << endl; 
 	cout << "Str "<<func("pwwkew") << endl;
 	system("pause");
 	return 0;

@@ -123,3 +123,38 @@ int func(string input_string) {
     }
     return max;
 }
+/*На вход подается неотрицательное число k от 0 до 33 включительно.
+В треугольнике Паскаля каждое число есть сумма 2 чисел над ним:
+*/
+int C(int m, int n)
+{
+    int fact_n = 1;
+    int fact_m = 1;
+    int fact_n_m = 1;
+    for (int i = 1; i <= n; i++)
+    {
+        fact_n *= i;
+    }
+    for (int i = 1; i <= m; i++)
+    {
+        fact_m *= i;
+    }
+    for (int i = 1; i <= (n - m); i++)
+    {
+        fact_n_m *= i;
+    }
+    return fact_n / (fact_m * fact_n_m);
+}
+std::vector <int> func_Pascal(int k)
+{
+    std::vector <int> result;
+    for (int i = 0; i < k + 1; i++)
+    {
+        result.push_back(C(i, k));
+    }
+    for (int i = 0; i < result.size(); i++)
+    {
+        std::cout << result[i];
+    }
+    return result;
+}
