@@ -3,7 +3,9 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include <cmath>
+#include <cmath>		//std::log
+#include <algorithm>	//std::reverse
+
 
 int num_of_args(std::vector<bool> f);
 

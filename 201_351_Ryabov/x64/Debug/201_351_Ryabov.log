@@ -1,2 +1,5 @@
 ﻿  201_351_Ryabov.cpp
+  Funcs.cpp
+C:\Users\ryabo\source\repos\Exam_2020_2021_winter\201_351_Ryabov\Funcs.cpp(5,28): warning C4244: return: преобразование "double" в "int", возможна потеря данных
+  Создание кода...
   201_351_Ryabov.vcxproj -> C:\Users\ryabo\source\repos\Exam_2020_2021_winter\201_351_Ryabov\x64\Debug\201_351_Ryabov.exe
