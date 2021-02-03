@@ -1,38 +1,52 @@
-#include <iostream> //ввод вывод
-#include <vector> //библиотека работы с векторами
-#include <string> //библиотека работы со строками 
-#include <fstream> //библиотека рабоы с файлами
-#include "Pavlov_K.h"
+#include <iostream>// библиотека вводавывода
+#include <vector>// библиотека для подключения контейнера вектор
+#include <string>// библиотека для работы с с++ строками
+#include "Pavlov_K.h"//подключаем класс
 using namespace std;
 
-int num_of_args(vector<bool> f)
-{
-	int n = 0;// колличество элементов 
-	while (pow(2, n) != f.size())
-		n++;
-	return  n;
-}
-
-vector<bool> read_from_file(string file_name)
-{
-	ifstream inf(file_name);//открываем файл для чтения
-	vector <bool> f;
-	while (inf)
-	{
-		bool i;
-		inf >> i;//считываем 
-		f.push_back(i);//добавляем в вектор
+int main() {
+	setlocale(LC_ALL, "ru");
+	//____________________Zadanie1_________________________
+	cout << "Zadanie1"<<endl;
+	int answ_task_1;
+	vector <bool> task_1 = { 0, 0, 1, 1 };
+	answ_task_1 = num_of_args(task_1);
+	cout << answ_task_1 << endl;
+	//____________________Zadanie2_________________________
+	cout << "Zadanie2" << endl;
+	string read_file_name = "read_bool_vector.txt";
+	vector <bool> answ_task_2 = read_from_file(read_file_name);
+	for (auto data : answ_task_2) {
+		cout << data << ' ';
 	}
-	inf.close();
-	return f;
+	//____________________Zadanie3_________________________
+	cout << "Zadanie3" << endl;
+	string write_file_name = "write_bool_vector.txt";
+	vector <bool> f = { 0, 0, 0, 0, 1, 1, 1, 1 };
+	cout << write_to_file(write_file_name, f);
+	cout << endl;
+	//____________________Zadanie5_________________________
+	cout << "Zadanie5" << endl;
+	vector <bool> f_sdnf = { 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1 };
+	string str_task_5 = func_sdnf(f_sdnf);
+	cout << str_task_5 << endl;
+	//____________________Zadanie6_________________________
+	cout << "Zadanie6" << endl;
+	vector <bool> f_sknf = { 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1 };
+	string str_task_6 = func_sknf(f_sknf);
+	cout << str_task_6 << endl;
+	//____________________Zadanie7_________________________
+	cout << "Zadanie7" << endl;
+	string roman_number;
+	cout << roman_to_arab("MMDCCCXLIX") << endl;
+	//____________________Zadanie8_________________________
+	cout << "Zadanie8" << endl;
+	cout << "число k для треугольника Паскаля = 4 " << endl;
+	int k = 4; 
+	func_Pascal(k);
+	//____________________Zadanie9_________________________
+	cout << endl << "Zadanie9" << endl;
+	cout << func("djfhvakgxdrg");
+	return 0;
 }
 
-bool write_to_file(string file_name, vector<bool> f)
-{
-	ofstream outf(file_name);//открываем файл для ввода
-	int i = 0;
-	for (int i = 0; i < f.size(); i++)
-		outf << f[i] << ' ';//вводим в файл
-	outf.close();
-	return true;
-}
