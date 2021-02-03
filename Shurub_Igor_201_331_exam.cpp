@@ -11,12 +11,12 @@ using namespace std;
 	setlocale(LC_ALL, "RUS");
 
 	vector <bool> read_from_file;
-	bool bool1;
+	bool n;
 
 	ifstream in;
 	in.open("D://file_name.txt");
 
-	while (in >> bool1) {
+	while (in >> n) {
 		read_from_file.push_back(bool1);
 	}
 
@@ -89,7 +89,7 @@ int main()
 		f.push_back(el);
 	}
 	bool x0 = f.at(0), x1 = f.at(1), x2 = f.at(2);//Возвращает ссылку на элемент в указанном месте с проверкой границ.
-	unsigned int m = pow(2, size);
+	 int m = pow(2, size);
 	cout << " x0 " << "x1 " << " x2 " << " СДНФ " << endl;
 	cout << " " << x0 << "  " << x1 << "  " << x2 << " " << " --- " << (!x0 || x1 || !x2) && (!x0 || x1 || x2) && (x0 || !x1 || x2) && (x0 || x1 || x2);
 }
